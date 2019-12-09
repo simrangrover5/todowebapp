@@ -84,7 +84,8 @@ class addtask(View):
 
 
 def mytasks(request):
-    data = Mytasks.objects.all()
+
+    data = Mytasks.objects.filter(user=Myuser.objects.get(email=request.session.get('email')))
     if len(data) == 0:
         return render(request,"task.html",{'error':"NO TASKS"})
     tasks = []
