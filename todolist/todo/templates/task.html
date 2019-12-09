@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+        li{
+            display: inline;
+        }
+        </style>
+    </head>
+    <body style="background:black;">
+        <h1 style="color:red">{{ error }}</h1>
+        {% for var in tasks %}
+        {% if var.color == "red" %}
+            <p style="color:red;font-size:40px">{{ var.tasks }}</p>
+            
+        {% elif var.color == "orange" %}
+            <p style="color:orange;font-size:40px">{{ var.tasks }}</p>
+            
+        {% else %}
+            <p style="color:green;font-size:40px">{{ var.tasks }}</p>
+        {% endif %}
+        <div>
+            <ul>
+            <li><h2 style="color:white">{{ var.date }}</h2></li>
+            <li><a href="/deltask/{{var.tasks}}/" style="color:coral;font-size:40px;padding-left: 40%;">DELETE</a>
+            </li>
+            </ul>
+        </div>
+        <hr>
+        {% endfor %}
+    </body>
+</html>
